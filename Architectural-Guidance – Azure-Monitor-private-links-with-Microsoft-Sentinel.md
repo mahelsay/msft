@@ -67,9 +67,9 @@ So the idea is simply that traffic from on-premises (or any VNET on Azure) will 
 
 **Fact 4:** The private link scope could be covering all log analytic workspaces or some of them. At this point, we need to pay attention to the private link mode (private only or open).
 
-**Private only mode:** allows the traffic VNet to only reach resources in the link scope. traffic to log analytics workspace out of the link scope is blocked.
++   **Private only mode:** allows the traffic VNet to only reach resources in the link scope. traffic to log analytics workspace out of the link scope is blocked.
 
-**Open mode:** allows the VNet to reach log analytic workspaces that are covered by the private link scope AND log analytics workspaces that are not covered by the private link scope. (if they accept traffic from public networks). The Open mode is useful for a mixed mode of work (accessing some resources publicly and others over a Private Link), or during a gradual onboarding process.
++   **Open mode:** allows the VNet to reach log analytic workspaces that are covered by the private link scope AND log analytics workspaces that are not covered by the private link scope. (if they accept traffic from public networks). The Open mode is useful for a mixed mode of work (accessing some resources publicly and others over a Private Link), or during a gradual onboarding process.
 
 
 So to simplify it, the following matrix should give an idea of how the result looks like for interactions between these four items. For other workspaces that are not covered by the same link scope, the following matrix applies
@@ -81,6 +81,7 @@ So to simplify it, the following matrix should give an idea of how the result lo
 |     private only    | Off                    | Blocked                     | 
 |     Open            | On                     | Allowed                     |
 |     Open            | Off                    | Blocked                     | 
+
 
 
 As expected, any log ingestion traffic for log analytics workspaces that are not covered by the same private link scope will be denied and only allowed if the link scope mode is set to **Open**
