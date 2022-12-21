@@ -1,4 +1,7 @@
 
+Author: Mahmoud Elsayed
+
+
 ///
 
 ###### This article was published on Microsoft's official techcommunity on 08.12.2022 at following link: 
@@ -91,3 +94,8 @@ As expected, any log ingestion traffic for log analytics workspaces that are not
 
 + Considering Azure monitor private link should be associated with either a concrete requirement or certain compliance obligations.
 + Use **link mode: open** when newly onboarding Microsoft Sentinel and switch to **link mode: private only** mode only after careful assessment of implication on all log analytics workspaces that are available and assessment of network and DNS design.
+
+
+Thank you
+
+*Mahmoud Elsayed, mahelsay@gmail.com*
