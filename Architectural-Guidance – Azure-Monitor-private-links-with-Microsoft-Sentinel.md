@@ -1,7 +1,8 @@
 
 ///
 
-###### This article was published on Microsoft's official techcommunity on 08.12.2022 at following link: https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/architectural-guidance-azure-monitor-private-links-with/ba-p/3692527
+###### This article was published on Microsoft's official techcommunity on 08.12.2022 at following link: 
+https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/architectural-guidance-azure-monitor-private-links-with/ba-p/3692527
 
 \\\
 
@@ -36,8 +37,10 @@ Private link in Azure Monitor is a network restriction and security mechanism th
 
 As mentioned in this document under exception section, data ingested through diagnostic settings pipeline by default go over a secure private channel and is not impacted by private links.
 
+
  
  ![This is an image](https://github.com/mahelsay/msft/blob/main/images/1.png)
+
 
 
 The same goes for type2 service-to-service data integrations as they also flow through Azure backbone.
@@ -47,7 +50,10 @@ The same goes for type2 service-to-service data integrations as they also flow t
 The best way to look at the concept under the context of this type3 is to examine the following diagram taken from this document
 
 
-Note that On-premises here could also be replaced by VNETs on azure as well because the same concept applies.
+ ![This is an image](https://github.com/mahelsay/msft/blob/main/images/2.png)
+
+
+**Note** that On-premises here could also be replaced by VNETs on azure as well because the same concept applies.
 
  
 
@@ -69,12 +75,12 @@ So the idea is simply that traffic from on-premises (or any VNET on Azure) will 
 So to simplify it, the following matrix should give an idea of how the result looks like for interactions between these four items. For other workspaces that are not covered by the same link scope, the following matrix applies
 
 
-| **link scope mode** | **Workspace Settings** | outcome  |
-|---------------------|------------------------|----------|
-|     private only    | On                     | Blocked  |
-|     private only    | Off                    | Blocked  | 
-|     Open            | On                     | Allowed  |
-|     Open            | Off                    | Blocked  | 
+| **link scope mode** | **Workspace Settings** | outcome for Public traffic  |
+|---------------------|------------------------|-----------------------------|
+|     private only    | On                     | Blocked                     |
+|     private only    | Off                    | Blocked                     | 
+|     Open            | On                     | Allowed                     |
+|     Open            | Off                    | Blocked                     | 
 
 
 As expected, any log ingestion traffic for log analytics workspaces that are not covered by the same private link scope will be denied and only allowed if the link scope mode is set to **Open**
