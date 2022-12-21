@@ -40,7 +40,7 @@ Private link in Azure Monitor is a network restriction and security mechanism th
 
 **Type1:** Ingesting data through diagnostic settings
 
-As mentioned in this document under exception section, data ingested through diagnostic settings pipeline by default go over a secure private channel and is not impacted by private links.
+As mentioned in [this document under exception section](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/private-link-design#control-network-access-to-your-resources), data ingested through diagnostic settings pipeline by default go over a secure private channel and is not impacted by private links.
 
 
  
