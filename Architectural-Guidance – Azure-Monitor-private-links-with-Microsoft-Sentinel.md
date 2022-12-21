@@ -52,7 +52,7 @@ The same goes for type2 service-to-service data integrations as they also flow t
 
 **Type3:** Agent-based-ingestion log sources
 
-The best way to look at the concept under the context of this type3 is to examine the following diagram taken from this document
+The best way to look at the concept under the context of this type3 is to examine the following diagram taken from [this document](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/private-link-security)
 
 
  ![This is an image](https://github.com/mahelsay/msft/blob/main/images/2.png)
