@@ -1,6 +1,9 @@
 
+///
 
 ###### This article was published on Microsoft's official techcommunity on 08.12.2022 at following link: https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/architectural-guidance-azure-monitor-private-links-with/ba-p/3692527
+
+\\\
 
 
 Firstly, I would like to thank  **Benjamin Kovacevic** for his help with this article.
@@ -34,6 +37,9 @@ Private link in Azure Monitor is a network restriction and security mechanism th
 As mentioned in this document under exception section, data ingested through diagnostic settings pipeline by default go over a secure private channel and is not impacted by private links.
 
  
+ ![This is an image](https://github.com/mahelsay/msft/blob/main/images/1.png)
+
+
 The same goes for type2 service-to-service data integrations as they also flow through Azure backbone.
 
 **Type3:** Agent-based-ingestion log sources
@@ -59,7 +65,9 @@ So the idea is simply that traffic from on-premises (or any VNET on Azure) will 
 
 **Open mode:** allows the VNet to reach log analytic workspaces that are covered by the private link scope AND log analytics workspaces that are not covered by the private link scope. (if they accept traffic from public networks). The Open mode is useful for a mixed mode of work (accessing some resources publicly and others over a Private Link), or during a gradual onboarding process.
 
+
 So to simplify it, the following matrix should give an idea of how the result looks like for interactions between these four items. For other workspaces that are not covered by the same link scope, the following matrix applies
+
 
 | **link scope mode** | **Workspace Settings** | outcome  |
 |---------------------|------------------------|----------|
@@ -71,7 +79,8 @@ So to simplify it, the following matrix should give an idea of how the result lo
 
 As expected, any log ingestion traffic for log analytics workspaces that are not covered by the same private link scope will be denied and only allowed if the link scope mode is set to **Open**
 
-#### **Our Recommendations from the field**
+
+### **Our Recommendations from the field**
 
 + Considering Azure monitor private link should be associated with either a concrete requirement or certain compliance obligations.
 + Use **link mode: open** when newly onboarding Microsoft Sentinel and switch to **link mode: private only** mode only after careful assessment of implication on all log analytics workspaces that are available and assessment of network and DNS design.
